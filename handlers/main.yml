@@ -1,2 +1,4 @@
 ---
-# handlers file for incron_role
+
+- name: restart incron
+  service: name=incron state=restarted

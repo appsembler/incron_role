@@ -1,10 +1,14 @@
 ---
 # This is an example playbook to execute Ansible tests.
 
+
 - name: Verify
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: "gather list of installed packages"
+      package_facts:
+        manager: "auto"
+    - name: "incron package installed"
+      assert:
+        that: "'incron' in ansible_facts.packages"
