@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include incron_role"
+      include_role:
+        name: "incron_role"
